@@ -1,0 +1,13 @@
+.input {
+  margin-left: 2rem;
+}
+
+@media (min-width: 60rem) {
+  .input {
+    margin-left: 8.5rem;
+  }
+
+  .textArea {
+    margin-left: 8.5rem;
+  }
+}

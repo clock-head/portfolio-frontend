@@ -1,0 +1,143 @@
+.space_racer.form {
+  background: #3e454c;
+  border: 1px solid #ca8c39;
+}
+
+.form {
+  max-width: 70%;
+  margin: 3rem auto;
+  padding: 5%;
+}
+
+.space_racer h2 {
+  color: #f7cb99;
+  margin: 0;
+}
+
+.space_racer label {
+  color: #ecbe82;
+}
+
+.welcome {
+  color: #ecbe82;
+}
+
+/* .control {
+  margin-right: 0;
+} */
+
+input {
+  color: #ecbe82;
+}
+
+.control input {
+  background: #838282;
+  border-radius: 4px;
+  width: 100%;
+  height: 2rem;
+  max-width: 15rem;
+  background-color: #363636;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #ca8c39;
+}
+
+.space_racer input:focus {
+  background-color: #665744;
+}
+
+.control.email {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+}
+
+.email input {
+  margin: auto;
+}
+
+.control.no-margin {
+  margin-bottom: 0;
+}
+
+.control label {
+  margin-bottom: 0.2rem;
+}
+
+legend {
+  color: #ecbe82;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #147b73;
+  color: #d9e2f1;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #319890;
+}
+
+.button-flat {
+  background-color: transparent;
+  color: #9cbaba;
+}
+
+.button-flat:hover,
+.button-flat:focus {
+  background-color: transparent;
+  color: #869999;
+}
+
+@media (min-width: 60rem) {
+  .control-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .control.text-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 15rem;
+  }
+
+  .control label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .control input {
+    margin: 0.2rem;
+    margin-right: 0;
+    height: 2rem;
+    border-radius: 4px;
+  }
+
+  .form {
+    margin: 5rem auto;
+    padding: 2rem;
+    max-width: 40rem;
+    min-height: 40vh;
+    border-radius: 20px;
+  }
+
+  .form.sign-in {
+    max-width: 20rem;
+  }
+
+  fieldset {
+    margin-top: 5rem;
+  }
+}

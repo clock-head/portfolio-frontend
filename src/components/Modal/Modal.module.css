@@ -1,0 +1,46 @@
+.modal {
+  position: fixed;
+  left: 5%;
+  top: 20vh;
+  border-radius: 5px;
+  z-index: 200;
+  background: rgba(151, 150, 150, 0.7);
+  border: 1px solid #d8b51c;
+}
+
+.modal-header {
+  border-bottom: 2px solid #d8b51c;
+}
+
+.modal-header h1 {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.modal-header.space_racer h1 {
+  color: rgb(224, 189, 90);
+}
+
+.modal-content {
+  padding: 1rem;
+}
+
+.modal-content p {
+  color: rgb(224, 189, 90);
+}
+
+.modal-actions {
+  padding: 1rem;
+  text-align: right;
+}
+
+.modal-actions button {
+  margin: 0 0.05rem;
+}
+
+@media (min-width: 60rem) {
+  .modal {
+    left: 42vw;
+    padding: 2rem;
+  }
+}

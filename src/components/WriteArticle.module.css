@@ -1,0 +1,89 @@
+.form {
+  position: absolute;
+  background: rgba(52, 84, 105, 0.2);
+  min-width: 50vw;
+  min-height: 50vh;
+  top: 5.5rem;
+  left: 5rem;
+  padding: 2rem;
+}
+
+.control {
+  display: block;
+  min-height: 10vh;
+}
+
+.control label {
+  display: block;
+  font-family: 'Lato', 'sans-serif';
+  color: #ccc;
+  text-align: left;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  height: 100%;
+  width: 80%;
+  position: absolute;
+  margin: auto;
+}
+
+.content_input {
+  /* background: #1c2a2e; */
+  border: none;
+  min-height: 30vh;
+  max-height: 40vh;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.strawberry_oasis {
+  /* background: var(--oasis-form-field-color); */
+  /* color: var(--oasis-form-input-text-color); */
+}
+
+.fudge {
+  background: var(--fudge-form-field-color);
+  color: var(--fudge-form-input-text-color);
+}
+
+.snow {
+  background: var(--snow-form-field-color);
+  color: var(--snow-form-input-text-color);
+}
+
+/* .strawberry_oasis:focus {
+  outline: none;
+  border: var(--oasis-form-focus-border);
+} */
+
+.snow:focus {
+  outline: none;
+  border: var(--snow-form-focus-border);
+}
+
+.fudge:focus {
+  outline: none;
+  border: var(--fudge-form-focus-border);
+}
+
+@media (min-width: 60rem) {
+  .form {
+    width: 90vw;
+  }
+
+  .control label {
+    margin-left: 9rem;
+  }
+
+  .title_input {
+    margin-left: 8.5rem;
+  }
+
+  .content_input {
+    max-width: 80vw;
+  }
+}

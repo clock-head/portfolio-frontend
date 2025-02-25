@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gajraj+One&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&family=Noto+Sans+TC:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gajraj+One&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+@font-face {
+  font-family: 'Akira';
+  src: url('../assets/fonts/akira_expanded_demo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --default-background: #15110e;
+  --default-header-color: #ca8c39;
+
+  --default-subheader-color: #408887;
+
+  --default-header-font: 'Bebas-Neue', 'sans-serif';
+
+  --default-subheader-font: 'Akira', 'sans-serif';
+
+  --default-profile-border: 1px solid #ca8c39;
+
+  --default-font-color: #ca8c39;
+  --default-border-color: 1px solid rgba(223, 144, 42, 0.2);
+
+  --default-main-nav-font-color: #ca8c39;
+  --default-main-nav-active-color: #408887;
+
+  --oasis-form-field-color: #1c2a2e;
+  --oasis-form-input-text-color: rgb(90, 214, 236);
+  --oasis-form-focus-border: 2px solid rgb(45, 119, 117);
+
+  --snow-form-field-color: #1c2a2e;
+  --snow-form-input-text-color: rgba(180, 235, 232);
+  --snow-form-focus-border: 2px solid rgba(180, 235, 232);
+
+  --oasis-profile-border: 1px solid rgb(102, 196, 255);
+  --snow-profile-border: 1px solid rgba(180, 235, 232);
+
+  --oasis-main-nav-font-color: #f389ee;
+  --snow-main-nav-font-color: #3d3146;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  /* background: rgb(184, 102, 117);*/
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(56, 109, 104, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d9d7d7;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  text-align: center;
+}

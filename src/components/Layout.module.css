@@ -1,0 +1,9 @@
+.body {
+  min-height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+}
+
+.space_racer {
+  background: var(--default-background);
+}

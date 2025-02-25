@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Akira';
+  src: url('../../assets/fonts/akira_expanded_demo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bebas-Neue';
+  src: url('../../assets/fonts/BebasNeue-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.item {
+  text-transform: capitalize;
+  position: fixed;
+  top: 2.5rem;
+}
+
+.header_container {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2rem;
+}
+
+.header_container h1 {
+  font-family: var(--default-header-font);
+  color: var(--default-header-color);
+}
+
+.header_container h2 {
+  font-family: var(--default-subheader-font);
+  color: var(--default-subheader-color);
+}
+
+/* .header {
+  font-size: 4rem;
+  margin: 0;
+} */
+
+.subheader {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: right;
+  margin: 0;
+}
+
+.space_racer header {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.mobile_pic {
+  display: block;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  /* border: solid rgb(102, 196, 255) 1px; */
+  border-radius: 9px;
+  border: var(--default-profile-border);
+}
+
+.pic {
+  display: none;
+}
+
+@media (min-width: 30rem) {
+  .header {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 40rem) {
+  .header {
+    font-size: 8rem;
+    margin: 0;
+  }
+
+  .subheader {
+    font-size: 2rem;
+    text-align: right;
+    margin: 0;
+  }
+}
+
+@media (min-width: 50rem) {
+  .header {
+    font-size: 8rem;
+    margin: 0;
+  }
+
+  .subheader {
+    font-size: 2rem;
+    text-align: right;
+    margin: 0;
+  }
+
+  .pic {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    padding: 7rem 4rem 7rem 4rem;
+    border-radius: 9px;
+    border: var(--default-profile-border);
+  }
+
+  .mobile_pic {
+    display: none;
+  }
+
+  .item {
+    position: fixed;
+    left: 25rem;
+    top: 10rem;
+    /* margin: 8rem 1rem 8rem 1rem; */
+  }
+}
