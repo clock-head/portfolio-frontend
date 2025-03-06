@@ -30,15 +30,14 @@
   margin: auto;
 }
 
-.content_input {
-  /* background: #1c2a2e; */
+/* .content_input {
   border: none;
   min-height: 30vh;
   max-height: 40vh;
   width: 80%;
   border-radius: 5px;
   font-size: 1rem;
-}
+} */
 
 .strawberry_oasis {
   /* background: var(--oasis-form-field-color); */

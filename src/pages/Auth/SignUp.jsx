@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Form from '../../components/Form/Form';
 import Layout from '../../components/Layout';
 import ErrorHandler from '../../components/Error/ErrorHandler';
@@ -7,6 +7,7 @@ import { ErrorContext, useError } from '../../store/error-context';
 
 export default function SignUp() {
   const height = '175vh';
+  let apiUrl = sessionStorage.getItem('apiUrl');
   const [errorModal, setErrorModal, formError, setFormError] = useError();
 
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export default function SignUp() {
   const onSubmit = async (userData) => {
     setFormError(null);
 
-    const response = await fetch('http://localhost:3000/api/1.0/auth/sign-up', {
+    const response = await fetch(`https://${apiUrl}/api/1.0/auth/sign-up`, {
       method: 'POST',
       body: JSON.stringify(userData),
       headers: { 'Content-Type': 'application/json' },

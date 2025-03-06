@@ -12,21 +12,16 @@ function Button({ onClick, className, ...props }) {
 
   const themeData = filterThemeData(theme, themesCollection);
 
-  console.log(themeData);
-
   let buttonStyle;
 
   if (theme !== 'space_racer' && className !== 'cancel' && themeData) {
     const themeStyles = parseThemeData(themeData, 'button');
-    // console.log(themeStyles);
     buttonStyle = {
       color: themeStyles.textColor,
       border: hover ? themeStyles.hoverBorderColor : themeStyles.borderColor,
       borderRadius: '2px',
       background: themeStyles.backgroundColor,
     };
-
-    console.log(buttonStyle);
   }
 
   // if (theme !== 'space_racer' && className === 'cancel' && themeData) {

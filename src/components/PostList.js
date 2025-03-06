@@ -10,7 +10,7 @@ function PostList({ posts }) {
     <ul className={classes.list}>
       {posts.map((post) => (
         <li key={post.timeStamp}>
-          <Link to={`/${post.timeStamp.toString()}`}>
+          <Link to={`/blog/${post.timeStamp.toString()}`}>
             <img src="" alt="post image" className={classes.postImage}></img>
             <h3>{post.title}</h3>
             <p>posted on: {getDate(post.timeStamp)}</p>

@@ -47,7 +47,7 @@ function Header() {
           }}
           className={`${classes[theme]} ${classes.header}`}
         >
-          Jin Tsuchiya
+          CLOCKHEAD
         </h1>
         <h2
           style={{

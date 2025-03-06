@@ -1,4 +1,4 @@
-import { useRef, useContext, useState } from 'react';
+import { useRef, useContext, useState, useEffect } from 'react';
 import classes from './WriteArticle.module.css';
 import Layout from './Layout';
 import Button from './Button/Button';
@@ -6,18 +6,18 @@ import { ThemeContext, useTheme } from '../store/theme-context';
 import { filterThemeData, parseThemeData } from '../util/theme';
 import styled from 'styled-components';
 import { Input, TextAreaInput } from './Input/Input';
+import ControlColumn from './FlowControl/ControlColumn';
 
 function WriteArticle() {
   const [isFocused, setIsFocused] = useState(false);
   const [theme, themesCollection, toggleTheme] = useTheme();
+  let apiUrl = sessionStorage.getItem('apiUrl');
 
   const title = useRef();
   const content = useRef();
 
   const themeData = filterThemeData(theme, themesCollection);
   const styles = {};
-
-  console.log('themeData', themeData);
 
   if (theme !== 'space_racer' && themeData) {
     const themeStyles = parseThemeData(themeData, 'newArticle');
@@ -32,20 +32,23 @@ function WriteArticle() {
     const enteredTitle = title.current.value;
     const enteredContent = content.current.value;
 
-    const response = await fetch('http://localhost:3000/admin/submit-article', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: enteredTitle,
-        slug: enteredTitle.replaceAll(' ', '_').toLowerCase(),
-        content: enteredContent,
-      }),
-      mode: 'cors',
-    }).then((response) => response);
+    const response = await fetch(
+      `https://${apiUrl}/api/1.0/admin/submit-article`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: enteredTitle,
+          slug: enteredTitle.replaceAll(' ', '_').toLowerCase(),
+          content: enteredContent,
+        }),
+        mode: 'cors',
+      }
+    ).then((response) => response);
 
-    console.log(response);
+    // success or failure modal for UX
   }
 
   return (
@@ -54,26 +57,24 @@ function WriteArticle() {
         <Button className="submit_button" value="submit">
           Submit
         </Button>
-        <div className={classes.control}>
-          <label htmlFor="title">Title</label>
+
+        <ControlColumn>
           <Input
-            formFieldColor={styles.formFieldColor}
-            textColor={styles.textColor}
-            formFieldActiveColor={styles.formFieldActiveColor}
-            formFieldBorderColor={styles.formFocusBorderColor}
-            titleRef={title}
+            label="title"
+            labelColor="white"
+            inputRef={title}
+            height="3rem"
+            fontSize="1.5rem"
+            marginBottom="1rem"
+            marginLeft="8.5rem"
           ></Input>
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="content">Content</label>
           <TextAreaInput
-            formFieldColor={styles.formFieldColor}
-            formFieldActiveColor={styles.formFieldActiveColor}
-            formFieldBorderColor={styles.formFocusBorderColor}
-            textColor={styles.textColor}
+            label="content"
             contentRef={content}
+            labelColor="white"
+            marginLeft="8.5rem"
           ></TextAreaInput>
-        </div>
+        </ControlColumn>
       </form>
     </div>
   );

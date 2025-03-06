@@ -73,16 +73,16 @@
   position: absolute;
   top: 4rem;
   left: 19rem;
-  background: rgba(52, 84, 105, 0.2);
-  border: none;
+  background: rgba(105, 97, 52, 0.2);
+  border: 1px solid rgb(116, 84, 38);
   padding: 0.5rem;
   border-radius: 5px;
-  color: rgb(45, 119, 117);
+  color: rgb(187, 134, 56);
 }
 
 .submit_button:hover {
-  border: 1px solid rgb(45, 119, 117);
-  color: rgb(71, 180, 177);
+  border: 1px solid rgb(219, 166, 68);
+  color: rgb(223, 197, 81);
 }
 
 @media (min-width: 60rem) {

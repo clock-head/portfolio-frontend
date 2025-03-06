@@ -1,23 +1,14 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useRef, Fragment, useEffect } from 'react';
 
-export default function ArticleBody({ title, content }) {
+export default function ArticleBody({ post }) {
   return (
-    <Fragment>
-      <main>
-        <article>
-          <header>
-            <h1>{title}</h1>
-          </header>
-
-          {/* content is saved as an array of objects */}
-
-          <section>
-            {content.map((paragraph) => {
-              return <p>{paragraph}</p>;
-            })}
-          </section>
-        </article>
-      </main>
-    </Fragment>
+    <div>
+      <h1>{post.title}</h1>
+      <article>
+        <section>
+          <p>{post.content}</p>
+        </section>
+      </article>
+    </div>
   );
 }

@@ -4,18 +4,20 @@ import { filterThemeData } from '../util/theme';
 export const ThemeContext = createContext(undefined);
 
 export function ThemeProvider({ children }) {
-  // const themes = ['oasis', 'fudge', 'snow'];
   const themesRef = useRef([]);
   const [themesCollection, setThemesCollection] = useState([
     { themeName: 'space_racer' },
   ]);
 
   useEffect(() => {
+    const apiUrl = sessionStorage.getItem('apiUrl');
+
+    console.log('themeCtx', apiUrl);
+
     const fetchThemes = async () => {
       try {
-        console.log('running');
         const response = await fetch(
-          'http://localhost:3000/api/1.0/themes/get-themes'
+          `https://${apiUrl}/api/1.0/themes/get-themes`
         );
 
         if (!response.ok) {
@@ -56,7 +58,9 @@ export function ThemeProvider({ children }) {
   const themeCtx = [theme, themesCollection, toggleTheme];
 
   return (
-    <ThemeContext.Provider value={themeCtx}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={themeCtx}>
+      {themesCollection.length > 0 ? children : <div>...Loading...</div>}
+    </ThemeContext.Provider>
   );
 }
 

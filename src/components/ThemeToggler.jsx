@@ -16,8 +16,6 @@ function ThemeToggler() {
 
   //Set Theme Button shows all the available themes in a list.
 
-  console.log(themesCollection);
-
   function showThemeSelection() {
     setShowThemeDropdown((prevState) => !prevState);
   }

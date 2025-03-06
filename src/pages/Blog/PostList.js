@@ -14,8 +14,6 @@ function PostListPage() {
 
   useEffect(() => {
     if (posts.fetchError) {
-      console.log(posts.fetchError);
-
       setErrorModal({
         title: 'Fetch Error',
         message: posts.fetchError.message,
@@ -46,9 +44,9 @@ function PostListPage() {
 export default PostListPage;
 
 export async function loader() {
-  const response = await fetch('http://localhost:3000/api/1.0/blog');
+  const apiUrl = sessionStorage.getItem('apiUrl');
 
-  console.log(response);
+  const response = await fetch(`https://${apiUrl}/api/1.0/blog`);
 
   if (!response.ok) {
     // ...

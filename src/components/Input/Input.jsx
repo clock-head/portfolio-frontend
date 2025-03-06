@@ -1,25 +1,54 @@
 import React, { useContext, useState } from 'react';
 import classes from './Input.module.css';
+import { ThemeContext, useTheme } from '../../store/theme-context';
+import { ErrorContext, useError } from '../../store/error-context';
+import { filterThemeData, parseThemeData } from '../../util/theme';
+import Error from '../Error/Error';
+import Unit from '../FlowControl/Unit';
 
-export const Input = ({
-  formFieldColor,
-  textColor,
-  formFieldActiveColor,
-  formFieldBorderColor,
-  titleRef,
-}) => {
+export const Input = ({ label, inputRef, name, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [theme, themesCollection, toggleTheme] = useTheme();
+  const [errorModal, setErrorModal, formError, setFormError] = useError();
+  const themeData = filterThemeData(theme, themesCollection);
+  const styles = {};
+  const inputType =
+    label === 'email'
+      ? 'email'
+      : label === 'password' || label === 'confirm-password'
+      ? 'password'
+      : 'text';
+  const title = label.replace('-', ' ');
+
+  if (theme !== 'space_racer' && themeData) {
+    const themeStyles = parseThemeData(themeData, 'newArticle');
+    styles.formFieldColor = themeStyles.formFieldColor;
+    styles.formFieldActiveColor = themeStyles.formFieldActiveColor;
+    styles.formFocusBorderColor = themeStyles.formFocusBorderColor;
+    styles.textColor = themeStyles.formInputTextColor;
+  }
 
   const inputStyle = {
-    backgroundColor: isFocused ? formFieldActiveColor : formFieldColor,
-    color: textColor,
-    border: isFocused ? formFieldBorderColor : '',
+    backgroundColor: isFocused
+      ? styles.formFieldActiveColor
+      : styles.formFieldColor,
+    color: styles.textColor,
+    border: isFocused ? styles.formFocusBorderColor : '',
     outline: 'none',
     display: 'block',
-    height: '3rem',
-    width: '70%',
+    height: props.height,
+    width: props.width,
     borderRadius: '5px',
-    fontSize: '1.5rem',
+    fontSize: props.fontSize,
+  };
+
+  const position = {
+    marginBottom: props.marginBottom,
+    marginLeft: props.marginLeft,
+  };
+
+  const labelStyle = {
+    color: props.labelColor,
   };
 
   const onFocus = () => {
@@ -30,33 +59,49 @@ export const Input = ({
     setIsFocused(false);
   };
 
-  // @media (min-width: 60rem) {
-  //   margin-left: 8.5rem;
-  // }
-
   return (
-    <>
-      {/* <Input></Input> */}
+    <div
+      style={position}
+      className={`${classes.control} ${classes.column} ${classes.theme}`}
+    >
+      <label htmlFor={label}>{title}</label>
       <input
         style={inputStyle}
         onFocus={onFocus}
         onBlur={onBlur}
-        type="text"
-        className={classes.input}
-        ref={titleRef}
+        type={inputType}
+        className={`${classes.input}`}
+        ref={inputRef}
+        name={name}
       ></input>
-    </>
+      {formError && formError[label] && (
+        <Error message={formError[label]}></Error>
+      )}
+    </div>
   );
 };
 
-export const TextAreaInput = ({
-  formFieldColor,
-  textColor,
-  formFieldActiveColor,
-  formFieldBorderColor,
-  contentRef,
-}) => {
+export const TextAreaInput = ({ contentRef, label, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [theme, themesCollection, toggleTheme] = useTheme();
+  const [errorModal, setErrorModal, formError, setFormError] = useError();
+  const themeData = filterThemeData(theme, themesCollection);
+  const styles = {};
+  const inputType =
+    label === 'email'
+      ? 'email'
+      : label === 'password' || label === 'confirm-password'
+      ? 'password'
+      : 'text';
+  const title = label.replace('-', ' ');
+
+  if (theme !== 'space_racer' && themeData) {
+    const themeStyles = parseThemeData(themeData, 'newArticle');
+    styles.formFieldColor = themeStyles.formFieldColor;
+    styles.formFieldActiveColor = themeStyles.formFieldActiveColor;
+    styles.formFocusBorderColor = themeStyles.formFocusBorderColor;
+    styles.textColor = themeStyles.formInputTextColor;
+  }
 
   const onFocus = () => {
     setIsFocused(true);
@@ -67,36 +112,27 @@ export const TextAreaInput = ({
   };
 
   const textAreaStyle = {
-    backgroundColor: isFocused ? formFieldActiveColor : formFieldColor,
-    border: isFocused ? formFieldBorderColor : '',
-    color: textColor,
+    backgroundColor: isFocused
+      ? styles.formFieldActiveColor
+      : styles.formFieldColor,
+    border: isFocused ? styles.formFocusBorderColor : '',
+    color: styles.textColor,
     outline: 'none',
     display: 'block',
     minHeight: '30vh',
     maxHeight: '40vh',
     width: '80%',
     borderRadius: '5px',
-    fontSize: '1rem',
+    fontSize: props.fontSize,
   };
 
-  // const TextAreaInput = styled.textarea`
-  //   background-color: ${formFieldColor};
-  //   color: ${textColor};
-  //   outline: none;
-  //   display: block;
-  // min-height: 30vh;
-  // max-height: 40vh;
-  // width: 80%;
-  // border-radius: 5px;
-  // font-size: 1rem;
-
-  // @media (min-width: 60rem) {
-  //   margin-left: 8.5rem;
-  // }
-  // `;
+  const position = {
+    marginLeft: props.marginLeft,
+  };
 
   return (
-    <>
+    <div style={position} className={`${classes.control} ${classes.column}`}>
+      <label htmlFor={label}>{label}</label>
       <textarea
         style={textAreaStyle}
         className={classes.textArea}
@@ -104,6 +140,6 @@ export const TextAreaInput = ({
         onBlur={onBlur}
         ref={contentRef}
       ></textarea>
-    </>
+    </div>
   );
 };
